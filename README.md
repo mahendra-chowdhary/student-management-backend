@@ -8,6 +8,23 @@ A RESTful backend application built using Java, Spring Boot, Spring Security, JW
 - **Backend API:** https://student-management-backend-production-8c7e.up.railway.app
 - **Swagger UI:** https://student-management-backend-production-8c7e.up.railway.app/swagger-ui/index.html
 
+## Screenshots
+
+### Swagger API Documentation and Student APIs
+![Swagger Overview with APIs](screenshots/swagger.png)
+
+### Authentication APIs
+![Authentication APIs](screenshots/authcontroller.png)
+
+### Railway
+![Railway](screenshots/Railway.png)
+
+### Student-Management-Backend
+![Student-Management-Backend](screenshots/backend.png)
+
+### MYSQL
+![MySQL](screenshots/mysql.png)
+
 ## Technologies Used
 
 - Java 21
