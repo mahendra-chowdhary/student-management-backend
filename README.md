@@ -11,19 +11,19 @@ A RESTful backend application built using Java, Spring Boot, Spring Security, JW
 ## Screenshots
 
 ### Swagger API Documentation and Student APIs
-![Swagger Overview with APIs](screenshots/swagger.png)
+![Swagger Overview with APIs](screenshoots/swagger.png)
 
 ### Authentication APIs
-![Authentication APIs](screenshots/authcontroller.png)
+![Authentication APIs](screenshoots/authcontroller.png)
 
 ### Railway
-![Railway](screenshots/Railway.png)
+![Railway](screenshoots/Railway.png)
 
 ### Student-Management-Backend
-![Student-Management-Backend](screenshots/backend.png)
+![Student-Management-Backend](screenshoots/backend.png)
 
 ### MYSQL
-![MySQL](screenshots/mysql.png)
+![MySQL](screenshoots/mysql.png)
 
 ## Technologies Used
 
