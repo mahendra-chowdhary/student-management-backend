@@ -1,3 +1,4 @@
+
 package com.coder.fe_be.config;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -26,27 +27,24 @@ public class AdminSeeder {
         return args -> {
 
             if (adminPassword.isBlank()) {
-                System.out.println(
-                    "ADMIN_PASSWORD is not set. Skipping default ADMIN account creation."
-                );
+                System.out.println("ADMIN_PASSWORD is not set.");
                 return;
             }
 
-            if (!userRepository.existsByUsername("admin")) {
+            User admin = userRepository.findByUsername("admin")
+                    .orElseGet(() -> {
+                        User newAdmin = new User();
+                        newAdmin.setUsername("admin");
+                        newAdmin.setEmail("admin@example.com");
+                        return newAdmin;
+                    });
 
-                User admin = new User();
+            admin.setPassword(passwordEncoder.encode(adminPassword));
+            admin.setRole(Role.ADMIN);
 
-                admin.setUsername("admin");
-                admin.setEmail("admin@example.com");
-                admin.setPassword(
-                    passwordEncoder.encode(adminPassword)
-                );
-                admin.setRole(Role.ADMIN);
+            userRepository.save(admin);
 
-                userRepository.save(admin);
-
-                System.out.println("Default ADMIN account created.");
-            }
+            System.out.println("ADMIN account created/updated successfully.");
         };
     }
 }
