@@ -17,7 +17,7 @@ public class AdminSeeder {
     @Value("${ADMIN_PASSWORD:}")
     private String adminPassword;
 
-    @Profile("!prod")
+    @Profile("prod")
     @Bean
     CommandLineRunner createAdmin(
             UserRepository userRepository,
