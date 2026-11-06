@@ -1,15 +1,26 @@
-
 package com.coder.fe_be.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.beans.factory.annotation.Value;
-
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.info.Info;
 
 @Configuration
+@OpenAPIDefinition(
+    security = @SecurityRequirement(name = "bearerAuth")
+)
+@SecurityScheme(
+    name = "bearerAuth",
+    type = SecuritySchemeType.HTTP,
+    scheme = "bearer",
+    bearerFormat = "JWT"
+)
 public class OpenApiConfig {
 
     @Value("${app.swagger.server-url:http://localhost:8080}")
@@ -23,8 +34,7 @@ public class OpenApiConfig {
                         .title("Student Management System API")
                         .description("REST APIs for managing student records.")
                         .version("1.0.0"))
-                .addServersItem(new Server()
-                        .url(serverUrl));
+                .addServersItem(new Server().url(serverUrl));
     }
 }
 
